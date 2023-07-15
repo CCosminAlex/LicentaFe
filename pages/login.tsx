@@ -1,7 +1,7 @@
 import router from "next/router";
 import { useState } from "react";
 
-export default function Login() {
+export default function Login2() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordValidation, setPasswordValidation] = useState<Boolean>(true);
@@ -27,6 +27,7 @@ export default function Login() {
 
   return (
     <div className="flex justify-center items-center h-screen bg-slate-600">
+      <a href="/api/auth/login">Login</a>;
       <form
         className="w-80 bg-white p-8 shadow rounded"
         onSubmit={handleSubmit}

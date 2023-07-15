@@ -1,3 +1,4 @@
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Card from "../../components/dash/Card";
 import Navbar from "../../components/Nav/Navbar";
 import { Voluntary } from "../../Interfaces/Interface";
@@ -79,3 +80,4 @@ export default function UserHome() {
     </div>
   );
 }
+export const getServerSideProps = withPageAuthRequired();
