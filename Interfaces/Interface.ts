@@ -1,5 +1,5 @@
-export interface Voluntary{
-    id: string;
+export interface Voluntary {
+  id: string;
   company: string;
   name: string;
   location: string;
@@ -7,4 +7,11 @@ export interface Voluntary{
   endDate: Date;
   description: string;
   reward: number;
+}
+
+export interface Location {
+  locationId: string;
+  street: string;
+  city: string;
+  number: string;
 }

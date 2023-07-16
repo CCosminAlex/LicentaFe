@@ -12,7 +12,7 @@ export default function Navbar() {
           <Link href="/page2">1</Link>
           <Link href="/page2">2</Link>
           <Link href="/page2">3</Link>
-          <Link href="/page2">4</Link>
+          <Link href="/company/create-voluntary">Create</Link>
           <Link href="/api/auth/logout">Logout</Link>
         </div>
       </div>

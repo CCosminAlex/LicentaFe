@@ -5,30 +5,46 @@ import axios from "axios";
 import Navbar from "../components/Nav/Navbar";
 import Button from "../components/input/Button";
 import { debug } from "console";
+import { redirect } from "next/dist/server/api-utils";
+import router, { Router } from "next/router";
 
 export default function profile() {
   const { user, error, isLoading } = useUser();
 
-  const [role, setRole] = useState("");
+  const [role, setRole] = useState("company");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
   const [birthdate, setBirthdate] = useState("");
 
   const handleSubmit = () => {
+    console.log(role);
     const requestBody = {
-      role: role == "company",
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      birthdate: birthdate,
+      isCompany: role == "company",
+      sub_ID: user ? user.sub : "",
+      name: firstName + " " + lastName,
+      email: user ? user.email : "",
+      birthDate: birthdate,
+      address: "string",
+      description: "string",
+      score: 0,
     };
 
     // Send the POST request using Axios
     axios
-      .post("your_api_endpoint", requestBody)
+      .post("https://localhost:7129/api/User", requestBody, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
       .then((response) => {
         // Handle the response if needed
+        if (response.status === 200) {
+          if (requestBody.isCompany) {
+            //router.redirect("/");
+          } else {
+            router.replace("/home/voluntarys");
+          }
+        }
         console.log(response.data);
       })
       .catch((error) => {
@@ -40,7 +56,6 @@ export default function profile() {
 
   return (
     <div>
-      <Navbar />
       <form onSubmit={handleSubmit}>
         <div className="grid grid-cols-2 gap-2 m-40">
           <div>
@@ -78,8 +93,7 @@ export default function profile() {
             </label>
             <input
               type="text"
-              placeholder="Email"
-              onChange={(e) => setEmail(e.target.value)}
+              placeholder={user ? user.email || "Email" : "Email"}
             ></input>
           </div>
           <div>
@@ -106,6 +120,7 @@ export default function profile() {
               name="role"
               id="roles"
               onChange={(e) => setRole(e.target.value)}
+              defaultValue="company"
             >
               <option value="company">Company</option>
               <option value="volunteer">Volunteer</option>
