@@ -37,10 +37,12 @@ export default function profile() {
         },
       })
       .then((response) => {
+        console.log(response);
+        debugger;
         // Handle the response if needed
         if (response.status === 200) {
           if (requestBody.isCompany) {
-            //router.redirect("/");
+            router.replace("/company-dashboard");
           } else {
             router.replace("/home/voluntarys");
           }
@@ -51,7 +53,6 @@ export default function profile() {
         // Handle errors if any
         console.error(error);
       });
-    debugger;
   };
 
   return (
@@ -59,10 +60,7 @@ export default function profile() {
       <form onSubmit={handleSubmit}>
         <div className="grid grid-cols-2 gap-2 m-40">
           <div>
-            <label
-              htmlFor="email"
-              className="block mb-2 text-black font-semibold"
-            >
+            <label htmlFor="" className="block mb-2 text-black font-semibold">
               First Name
             </label>
             <input
@@ -72,10 +70,7 @@ export default function profile() {
             ></input>
           </div>
           <div>
-            <label
-              htmlFor="email"
-              className="block mb-2 text-black font-semibold"
-            >
+            <label htmlFor="" className="block mb-2 text-black font-semibold">
               Last Name
             </label>
             <input
@@ -85,10 +80,7 @@ export default function profile() {
             ></input>
           </div>
           <div>
-            <label
-              htmlFor="email"
-              className="block mb-2 text-black font-semibold"
-            >
+            <label htmlFor="" className="block mb-2 text-black font-semibold">
               Email
             </label>
             <input
@@ -97,10 +89,7 @@ export default function profile() {
             ></input>
           </div>
           <div>
-            <label
-              htmlFor="email"
-              className="block mb-2 text-black font-semibold"
-            >
+            <label htmlFor="" className="block mb-2 text-black font-semibold">
               Birthdate
             </label>
             <input
@@ -110,10 +99,7 @@ export default function profile() {
             ></input>
           </div>
           <div>
-            <label
-              htmlFor="email"
-              className="block mb-2 text-black font-semibold"
-            >
+            <label htmlFor="" className="block mb-2 text-black font-semibold">
               Role
             </label>
             <select

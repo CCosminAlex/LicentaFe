@@ -2,16 +2,22 @@ export interface Voluntary {
   id: string;
   company: string;
   name: string;
-  location: string;
-  startDate: Date;
-  endDate: Date;
+  location: Location;
+  startDate: string;
+  endDate: string;
   description: string;
   reward: number;
 }
 
 export interface Location {
-  locationId: string;
+  id: string;
   street: string;
   city: string;
   number: string;
+}
+
+export interface FilterComp {
+  label?: string;
+  placeholder?: string;
+  type?: string;
 }

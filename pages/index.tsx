@@ -7,15 +7,17 @@ import { useEffect } from "react";
 import router from "next/router";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import axios from "axios";
+import { atom, useAtom } from "jotai";
+import { userAtom } from "../atoms/userAtom";
 
 export default function Home() {
   const { user, error, isLoading } = useUser();
-
   useEffect(() => {
     if (user) {
       axios
         .get(`https://localhost:7129/api/User/${user.sub}`, {})
         .then((response) => {
+          // Create your atoms and derivatives
           response.data.isCompany === undefined
             ? router.replace("/create-profile")
             : response.data.isCompany

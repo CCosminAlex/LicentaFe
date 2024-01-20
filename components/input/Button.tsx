@@ -8,6 +8,7 @@ const colors = {
   green:
     "bg-green-700 hover:bg-green-600 active:bg-green-700 text-white hover:text-green-100 active:text-green-200 ring-green-700/70",
   lime: "bg-lime-400 hover:bg-lime-500 active:bg-lime-600 text-white hover:text-slate-100 active:text-slate-200 ring-lime-700/70",
+  blue: "bg-blue-600 hover:bg-blue-500 active:bg-lime-600 text-white hover:text-slate-100 active:text-slate-200 ring-lime-700/70",
 };
 
 const sizes = {
