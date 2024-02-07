@@ -76,7 +76,16 @@ export default function VoluntaryInforCardCompany(props: Voluntary) {
             </div>
             <div className="flex items-end">
               <div className=" m-5">
-                <Button size="base" className="mt-4 ml-auto" color="green">
+                <Button
+                  size="base"
+                  className="mt-4 ml-auto"
+                  color="green"
+                  onClick={() =>
+                    router.replace(
+                      "/companyVoluntaryInfo/" + props.id + "/editVoluntary"
+                    )
+                  }
+                >
                   Edit
                 </Button>
               </div>
